@@ -289,9 +289,13 @@ function! s:gSearch(type, ...)
         return
     endif
 
-    " Use ! after grep, so that Vim doesn't automatically jump to the
-    " first match
-    let grep_cmd = 'grep! ' . grep_opt . ' ' . pattern . ' ' . filenames
+    if !exists("g:grep_cmd_command")
+      " Use ! after grep, so that Vim doesn't automatically jump to the
+      " first match
+      let grep_cmd = 'grep! ' . grep_opt . ' ' . pattern . ' ' . filenames
+    else
+      let grep_cmd = g:grep_cmd_command . ' ' . grep_opt . ' ' . pattern . ' ' . filenames
+    endif
 
     " Run the grep and get the matches
     silent! exe grep_cmd
