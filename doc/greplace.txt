@@ -72,6 +72,12 @@ is set to either grep (on Unix) or findstr (on MS-Windows). By modifying the
 "grepprg" option, you can also use other programs for searching. To use the
 Vim internal grep, set the "grepprg" option to "internal".
 
+To customize command used for ":Gsearch" you can update both the command and
+the default options. For example, to use "git grep"
+
+    set grepprg=git\ grep
+    let g:grep_cmd_opts = '--line-numbers --noheading'
+
 The syntax of the ":Gsearch" command is:
 >
     :Gsearch [<grep-option(s)>] [[<pattern>] [<filename(s)>]]
