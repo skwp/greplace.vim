@@ -221,7 +221,15 @@ endfunction
 " gSearch
 " Search for a pattern in a group of files using ':grep'
 function! s:gSearch(type, ...)
-    let grep_opt  = '-r'
+
+    if exists("g:grep_cmd_opts")
+      let grep_opt  = g:grep_cmd_opts
+    else
+      " default arguments for the default grepprg
+      " which is grep on Unix based system
+      let grep_opt  = '-r'
+    endif
+
     let pattern   = ''
     let filenames = ''
 
