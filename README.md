@@ -1,8 +1,6 @@
 VIM Plugin for doing a search and replace across many files.
 
-Use :Gsearch <search>  to get a buffer window of your search results
-then you can make the replacements inside the buffer window using
-traditional tools (s/foo/bar/) and invoke :Greplace to make your changes.
+## About this plugin
 
 Original plugin by Yegappan Lakshmanan
 http://www.vim.org/scripts/script.php?script_id=1813
@@ -10,6 +8,12 @@ http://www.vim.org/scripts/script.php?script_id=1813
 Modifications by Yan Pritzker:
  * Always grep recursive
  * Silence the search so you don't get a gigantic scroll list
+
+## Usage
+1.  Use :Gsearch <search>  to get a buffer window of your search results
+2.  then you can make the replacements inside the buffer window using traditional tools (%s/foo/bar/) 
+3.  Invoke :Greplace to make your changes across all files. It will ask you interatively y/n/a - you can hit 'a' to do all.
+4.  Save changes to all files with `:wall` (write all)
 
 ## Customization
 
