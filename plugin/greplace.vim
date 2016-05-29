@@ -65,7 +65,7 @@ function! s:gReplace()
         let text = match_l[3]
 
         let key = fname . ':' . lnum
-        if s:save_qf_list[key].text == text
+        if s:save_qf_list[key].text ==# text
             " This line is not changed
             continue
         endif
@@ -101,13 +101,13 @@ function! s:gReplace()
             let new_ltext = f_l[lnum]
 
             let s_idx =0
-            while cur_ltext[s_idx] == new_ltext[s_idx]
+            while cur_ltext[s_idx] ==# new_ltext[s_idx]
                 let s_idx += 1
             endwhile
 
             let e_idx1 = strlen(cur_ltext) - 1
             let e_idx2 = strlen(new_ltext) - 1
-            while e_idx1 >= 0 && cur_ltext[e_idx1] == new_ltext[e_idx2]
+            while e_idx1 >= 0 && cur_ltext[e_idx1] ==# new_ltext[e_idx2]
                 let e_idx1 -= 1
                 let e_idx2 -= 1
             endwhile
